@@ -52,8 +52,8 @@ const search = () => {
 				let dataSet = response.data.results
 				let nearestIndex = null;
 				let nearestDistance = 100000;
-				dataSet.forEach((element, index)=> {
-					if(element.coordinates){
+				dataSet.forEach((element, index) => {
+					if (element.coordinates) {
 					let distance = Math.sqrt
 					(Math.pow(element.coordinates.latitude +  ordinates.lat,2)
 					+ Math.pow(element.coordinates.longitude +  ordinates.long,2));
