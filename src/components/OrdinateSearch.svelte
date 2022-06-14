@@ -13,13 +13,11 @@
 		{#each citySearchInfo as info}
 			<tr>{info[0]} : {parseFloat(info[1]).toFixed(2)} {info[2]}</tr>
 		{/each}
-		{:else}
-		{#if error}
+		{:else if error}
 			<div class="warning-message">
 				The co-ordinates you entered didn't have anything to return,
 				please try again.
 			</div>
-		{/if}
 	{/if}
 </div>
 
@@ -39,8 +37,8 @@ let error = false;
 
 const search = () => {
 	error = false;
-	axios.get(`https://api.openaq.org/v2/locations?limit=100&coordinates=${ordinates.lat}%2C${ordinates.long}&radius=100000`)
-		.then((response) => {
+	axios.get(`https://api.openaq.org/v2/locations?limit=100&coordinates=${ordinates.lat}%2C${ordinates.long}&radius=100000`).then
+		((response) => {
 			citySearchInfo = [];
 			searchResultLocation = '';
 			searchResultCountry = '';
@@ -75,6 +73,9 @@ const search = () => {
 </script>
 
 <style>
+.landing, .search-form{
+	text-align: center;
+}
 .search-result {
 	position: absolute;
 	margin-left: 50%;
